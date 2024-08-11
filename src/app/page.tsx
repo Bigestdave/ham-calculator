@@ -3,6 +3,64 @@
 import React, { useState } from 'react';
 import { Calculator, Copy, Check } from 'lucide-react';
 
+const AdComponent1 = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = `
+      atOptions = {
+        'key' : '36d2c83ef1272bb1d1cce2018f06e5a9',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    `;
+    document.body.appendChild(script);
+
+    const script2 = document.createElement('script');
+    script2.type = 'text/javascript';
+    script2.src = '//www.topcreativeformat.com/36d2c83ef1272bb1d1cce2018f06e5a9/invoke.js';
+    document.body.appendChild(script2);
+
+    return () => {
+      document.body.removeChild(script);
+      document.body.removeChild(script2);
+    };
+  }, []);
+
+  return <div id="ad-container-1"></div>;
+};
+
+const AdComponent2 = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = `
+      atOptions = {
+        'key' : '359026100532b19f286f77ba4abeab14',
+        'format' : 'iframe',
+        'height' : 50,
+        'width' : 320,
+        'params' : {}
+      };
+    `;
+    document.body.appendChild(script);
+
+    const script2 = document.createElement('script');
+    script2.type = 'text/javascript';
+    script2.src = '//www.topcreativeformat.com/359026100532b19f286f77ba4abeab14/invoke.js';
+    document.body.appendChild(script2);
+
+    return () => {
+      document.body.removeChild(script);
+      document.body.removeChild(script2);
+    };
+  }, []);
+
+  return <div id="ad-container-2"></div>;
+};
+
 const levelMultipliers = {
   'Bronze': 0,
   'Silver': 1,
@@ -145,6 +203,7 @@ const HamsterKombatCalculator = () => {
             >
               Calculate
             </button>
+             <AdComponent2 />
           </div>
 
           <div className="text-center mt-6">
@@ -196,6 +255,7 @@ const HamsterKombatCalculator = () => {
         <footer className="mt-8 text-center text-sm text-gray-500">
           Disclaimer: this is just a speculation based on the information given to us by Hamster Kombat Team
         </footer>
+         <AdComponent1 />
       </div>
     </div>
   );
