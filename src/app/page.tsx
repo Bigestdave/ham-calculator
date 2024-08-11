@@ -203,7 +203,6 @@ const HamsterKombatCalculator = () => {
             >
               Calculate
             </button>
-             <AdComponent2 />
           </div>
 
           <div className="text-center mt-6">
@@ -255,7 +254,9 @@ const HamsterKombatCalculator = () => {
         <footer className="mt-8 text-center text-sm text-gray-500">
           Disclaimer: this is just a speculation based on the information given to us by Hamster Kombat Team
         </footer>
-         <AdComponent1 />
+
+        <AdComponent1 />
+      <AdComponent2 />
       </div>
     </div>
   );
