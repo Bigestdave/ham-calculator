@@ -1,6 +1,6 @@
 'use client'; 
 
-import React, { useState } from 'react';
+import React, { useStateuseEffect } from 'react';
 import { Calculator, Copy, Check } from 'lucide-react';
 
 const AdComponent1 = () => {
