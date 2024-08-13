@@ -1,4 +1,4 @@
-'use client'; 
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { Calculator, Copy, Check } from 'lucide-react';
@@ -59,6 +59,21 @@ const AdComponent2 = () => {
   }, []);
 
   return <div id="ad-container-2"></div>;
+};
+
+const PopunderAd = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.src = '//pl24023264.highratecpm.com/50/a9/95/50a995c03dda0e441f1bd2f92ee860c3.js';
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
+  return null;
 };
 
 const levelMultipliers = {
@@ -257,6 +272,7 @@ const HamsterKombatCalculator = () => {
 
         <AdComponent1 />
       <AdComponent2 />
+         <PopunderAd />
       </div>
     </div>
   );
