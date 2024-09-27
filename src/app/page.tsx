@@ -47,6 +47,21 @@ const AdComponent2 = () => {
     `;
     document.body.appendChild(script);
 
+    const AdComponent = () => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.setAttribute('data-cfasync', 'false');
+    script.src = '//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1098737';
+    script.async = true;
+    
+    document.body.appendChild(script);
+
+    // Clean up the script when the component is unmounted
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
     const script2 = document.createElement('script');
     script2.type = 'text/javascript';
     script2.src = '//www.topcreativeformat.com/359026100532b19f286f77ba4abeab14/invoke.js';
@@ -273,6 +288,7 @@ const HamsterKombatCalculator = () => {
         <AdComponent1 />
       <AdComponent2 />
          <PopunderAd />
+        <div id="ad-container"></div>
       </div>
     </div>
   );
