@@ -47,21 +47,6 @@ const AdComponent2 = () => {
     `;
     document.body.appendChild(script);
 
-    const AdComponent = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.setAttribute('data-cfasync', 'false');
-    script.src = '//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1098737';
-    script.async = true;
-    
-    document.body.appendChild(script);
-
-    // Clean up the script when the component is unmounted
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-
     const script2 = document.createElement('script');
     script2.type = 'text/javascript';
     script2.src = '//www.topcreativeformat.com/359026100532b19f286f77ba4abeab14/invoke.js';
@@ -74,6 +59,37 @@ const AdComponent2 = () => {
   }, []);
 
   return <div id="ad-container-2"></div>;
+};
+
+const AdComponent3 = () => {
+  useEffect(() => {
+    // Create the script element
+    const script = document.createElement('script');
+    script.setAttribute('data-cfasync', 'false');
+    script.src = '//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1098737';
+    script.async = true;
+
+    // Append the script to a specific container
+    const adContainer = document.getElementById('ad-container-3');
+    if (adContainer) {
+      adContainer.appendChild(script);
+    } else {
+      // Fallback to body if the container is not found
+      document.body.appendChild(script);
+    }
+
+    // Cleanup the script when the component is unmounted
+    return () => {
+      if (adContainer && script.parentNode === adContainer) {
+        adContainer.removeChild(script);
+      } else if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
+  // Return a div where the ad script will be injected
+  return <div id="ad-container-3" className="mt-4"></div>;
 };
 
 const PopunderAd = () => {
@@ -287,8 +303,8 @@ const HamsterKombatCalculator = () => {
 
         <AdComponent1 />
       <AdComponent2 />
+        <AdComponent3 />
          <PopunderAd />
-        <div id="ad-container"></div>
       </div>
     </div>
   );
